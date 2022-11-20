@@ -26,9 +26,11 @@ Como utilizar
 Após clonar o diretório:
 
 Crie um ambiente virtual (opcional, mas desejável)
+
 python -m venv venv 
 
 Instale os packages constantes no arquivo requirements.txt
+
 pip install -r .\requirements.txt
 
 Notas
