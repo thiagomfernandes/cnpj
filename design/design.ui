@@ -6,78 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>567</width>
-    <height>582</height>
+    <width>882</width>
+    <height>504</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Importador arquivos CNPJ</string>
+   <string>Importador CNPJ</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../coolsoft.ico</normaloff>../coolsoft.ico</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="12" column="0">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>MySql Pass</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="14" column="0" colspan="5">
-     <spacer name="horizontalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="13" column="0">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>MySql Database Name</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="4">
-     <widget class="QLineEdit" name="txtmysqlhost"/>
-    </item>
-    <item row="13" column="4">
-     <widget class="QLineEdit" name="txtmysqldb"/>
-    </item>
-    <item row="10" column="0">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>MySql HOST</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="0" colspan="5">
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="0" column="0" colspan="5">
+    <item row="0" column="0">
      <widget class="QLabel" name="label_5">
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Utilize este programa para transpor os dados tabulados de CNPJ da receita federal para um banco de dados MySql&lt;/p&gt;&lt;p&gt;Os arquivos podem ser obtidos através do link &lt;a href=&quot;http://200.152.38.155/CNPJ/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://200.152.38.155/CNPJ/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -87,36 +29,7 @@
       </property>
      </widget>
     </item>
-    <item row="11" column="0">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>MySql User</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="11" column="4">
-     <widget class="QLineEdit" name="txtmysqluser"/>
-    </item>
-    <item row="15" column="0" colspan="5">
-     <widget class="QPushButton" name="btnimportfiles">
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Importar Arquivos Selecionados -&gt; MySQL</string>
-      </property>
-     </widget>
-    </item>
-    <item row="12" column="4">
-     <widget class="QLineEdit" name="txtmysqlpass"/>
-    </item>
-    <item row="2" column="0" colspan="5">
+    <item row="2" column="0">
      <widget class="QTreeWidget" name="treefiles">
       <property name="selectionMode">
        <enum>QAbstractItemView::NoSelection</enum>
@@ -131,31 +44,152 @@
       </column>
      </widget>
     </item>
-    <item row="7" column="0" colspan="5">
-     <widget class="QPushButton" name="btnsearchfiles">
-      <property name="text">
-       <string>Procurar Arquivos no Computador...</string>
+    <item row="2" column="1">
+     <layout class="QGridLayout" name="gridLayout_3">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
       </property>
-     </widget>
-    </item>
-    <item row="3" column="0" colspan="5">
-     <widget class="QPushButton" name="btnwebreceita">
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
+      <property name="verticalSpacing">
+       <number>6</number>
       </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: #0bff8d;</string>
-      </property>
-      <property name="text">
-       <string>Obter Arquivos via site Receita Federal</string>
-      </property>
-     </widget>
+      <item row="3" column="0" colspan="2">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0" colspan="2">
+       <widget class="QPushButton" name="btnimportfiles">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Importar Arquivos Selecionados -&gt; MySQL</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>MySql HOST</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QPushButton" name="btnwebreceita">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #0bff8d;</string>
+        </property>
+        <property name="text">
+         <string>Obter Arquivos via site Receita Federal</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLineEdit" name="txtmysqluser"/>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>MySql User</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLineEdit" name="txtmysqldb">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="txtmysqlhost">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>MySql Database</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QLineEdit" name="txtmysqlpass"/>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>MySql Pass</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QPushButton" name="btnsearchfiles">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Procurar Arquivos no Computador...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" colspan="2">
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>

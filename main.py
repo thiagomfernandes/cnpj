@@ -6,7 +6,7 @@ from PyQt5.QtCore import Qt
 from mysql_engine import MySqlEngine
 from file_engine import FileEngine
 from webscraping_engine import getwebfiles
-
+import configparser
 
 '''
 venv/scripts/activate
@@ -27,11 +27,27 @@ class CNPJ(QMainWindow, Ui_MainWindow):
         self.treefiles.itemChanged.connect(self.handleItemChanged)
 
         #initialize db configs
-        self.txtmysqlhost.setText('')
-        self.txtmysqluser.setText('')
-        self.txtmysqlpass.setText('')
-        self.txtmysqldb.setText('')
+        self.readconfig()
+
+    def readconfig(self):
+        config = configparser.ConfigParser()
+        config.read('mysql.config')
+
+        self.txtmysqlhost.setText(config['mysql']['host'])
+        self.txtmysqluser.setText(config['mysql']['user'])
+        self.txtmysqlpass.setText(config['mysql']['pass'])
+        self.txtmysqldb.setText(config['mysql']['db'])
     
+    def saveconfig(self):
+        config = configparser.ConfigParser()
+        config.add_section('mysql')
+        config.set('mysql','host', self.txtmysqlhost.text())
+        config.set('mysql','user', self.txtmysqluser.text())
+        config.set('mysql','pass', self.txtmysqlpass.text())
+        config.set('mysql','db', self.txtmysqldb.text())
+        with open('mysql.config', 'w') as configfile:
+            config.write(configfile)
+
     def printtree(self):
         self.treefiles.clear()
         batention = QBrush(Qt.darkBlue)
@@ -83,8 +99,7 @@ class CNPJ(QMainWindow, Ui_MainWindow):
     def getfilesweb(self):
         files = getwebfiles()
         for file, size in files:
-            FileEngine.categorizefile(self.cnpjfiles, file, size)
-        
+            FileEngine.categorizefile(self.cnpjfiles, file, size)        
         self.printtree()
         
     def preparedb(self, my : MySqlEngine) -> bool:
@@ -119,13 +134,23 @@ class CNPJ(QMainWindow, Ui_MainWindow):
         return True
 
     def importfiles(self):
-        checkedfiles = [
+        if not self.txtmysqlhost.text() or not self.txtmysqluser.text() or not self.txtmysqldb.text():
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle('Parâmetros inválidos')
+            msgBox.setText('É obrigatório informar o host, user e database para continuar...') 
+            msgBox.exec()
+            return    
+        
+        self.saveconfig()
+
+        hascheckedfiles = [
             file
             for files in self.cnpjfiles.values()
             for file in files
             if file['checked']
         ]
-        if not checkedfiles:
+        if not hascheckedfiles:
             msgBox = QMessageBox()
             msgBox.setIcon(QMessageBox.Information)
             msgBox.setWindowTitle('Selecione arquivos...')

@@ -55,7 +55,7 @@ class FileEngine():
         if 'http' in file:
             file = {
                 "file" : file, 
-                "size" : getfriendlysize(size) if size is not None else '-?-', 
+                "size" : getfriendlysize(size) if size is not None else '? bytes', 
                 "status": "Na fila (WEB)"     
                 }
 
@@ -70,7 +70,14 @@ class FileEngine():
         if cnpjfiles.get(category) is None:
             cnpjfiles.update({category : [file]})
         else:
-            cnpjfiles.get(category).append(file)
+            fileexist = [
+                f
+                for files in cnpjfiles.values()
+                for f in files
+                if f['file'] == file['file']
+            ]
+            if not fileexist:
+                cnpjfiles.get(category).append(file)
 
     @classmethod
     def readfile(cls, category, file, my : MySqlEngine) -> tuple:

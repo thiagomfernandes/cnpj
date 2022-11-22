@@ -3,6 +3,8 @@ Importador de arquivos de CNPJ da Receita Federal
 
 Importador em Python com interface gráfica, que permite obter e carregar em um banco de dados MySql os arquivos da base de dados nacional de CNPJ da Receita Federal. 
 
+![Preview](capture.png)
+
 Tecnologias utilizadas
 --------
 - Python
